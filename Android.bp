@@ -1,0 +1,130 @@
+java_library {
+    name: "vendor.aosp.biometrics.face.V1_0",
+    installable: true,
+
+    srcs: [
+        "src/**/*.java",
+        "src/**/*.aidl",
+    ],
+    aidl: {
+        local_include_dirs: ["src"],
+    },
+}
+
+prebuilt_etc_xml {
+	name: "com.android.faceunlock.xml",
+	src: "prebuilt/product/etc/permissions/com.android.faceunlock.xml",
+	sub_dir: "permissions",
+	product_specific: true,
+}
+
+prebuilt_etc_xml {
+    name: "faceunlock_sense_perms",
+    sub_dir: "permissions",
+    src: "prebuilt/etc/permissions/android.hardware.biometrics.face.xml",
+    filename_from_src: true,
+}
+
+prebuilt_etc_xml {
+    name: "faceunlock_sense_hiddenapi",
+    sub_dir: "sysconfig",
+    src: "prebuilt/etc/sysconfig/hiddenapi-whitelist-com.android.faceunlock.xml",
+    filename_from_src: true,
+    product_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libFaceDetectCA",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["prebuilt/lib/libFaceDetectCA.so"],
+		},
+		android_arm64: {
+			srcs: ["prebuilt/lib64/libFaceDetectCA.so"],
+		},
+	},
+	compile_multilib: "both",
+	check_elf_files: false,
+	prefer: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libMegviiUnlock-jni-1.2",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["prebuilt/lib/libMegviiUnlock-jni-1.2.so"],
+		},
+		android_arm64: {
+			srcs: ["prebuilt/lib64/libMegviiUnlock-jni-1.2.so"],
+		},
+	},
+	compile_multilib: "both",
+	check_elf_files: false,
+	prefer: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libMegviiUnlock",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["prebuilt/lib/libMegviiUnlock.so"],
+		},
+		android_arm64: {
+			srcs: ["prebuilt/lib64/libMegviiUnlock.so"],
+		},
+	},
+	compile_multilib: "both",
+	check_elf_files: false,
+	prefer: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libmegface",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["prebuilt/lib/libmegface.so"],
+		},
+		android_arm64: {
+			srcs: ["prebuilt/lib64/libmegface.so"],
+		},
+	},
+	compile_multilib: "both",
+	check_elf_files: false,
+	prefer: true,
+}
+
+android_app_import {
+	name: "FaceUnlockService",
+	apk: "prebuilt/product/priv-app/FaceUnlockService/FaceUnlockService.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: true,
+	},
+	privileged: true,
+	product_specific: true,
+	required: [
+		"com.android.faceunlock.xml",
+		"facesense-default-permissions",
+		"libFaceDetectCA",
+		"libmegface",
+		"libMegviiUnlock",
+		"libMegviiUnlock-jni-1.2",
+		"faceunlock_sense_hiddenapi",
+		"faceunlock_sense_perms",
+		"vendor.aosp.biometrics.face.V1_0",
+		"FaceUnlockSettingsOverlay"
+	],
+}
+
