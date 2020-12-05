@@ -25,13 +25,13 @@
     <string name="security_settings_face_enroll_introduction_accessibility_vision">需要睁开眼睛</string>
     <!-- Introduction title shown in face enrollment to introduce the face unlock feature [CHAR LIMIT=40] -->
     <string name="security_settings_face_enroll_introduction_title">设置面部解锁</string>
-    <string name="security_settings_face_enroll_introduction_footer_part_0">人脸解锁注意事项</string>
+    <string name="security_settings_face_enroll_introduction_footer_part_0">重要提示：</string>
     <!-- Introduction message shown in face enrollment that provides extra detail. [CHAR LIMIT=NONE] -->
-    <string name="security_settings_face_enroll_introduction_footer_part_1">人脸解锁记录的数据将安全存储，您可以随时在设置中删除人脸解锁数据\n人脸解锁会使用最近的面部解锁图像来改进的面部模型</string>
+    <string name="security_settings_face_enroll_introduction_footer_part_1">长相与您相似的人（例如您的同胞兄弟姐妹）也能够解锁您的手机。</string>
     <!-- Introduction message shown in face enrollment that provides extra detail. [CHAR LIMIT=NONE] -->
-    <string name="security_settings_face_enroll_introduction_footer_part_2">无意看向手机可能会将其解锁（别人拿起手机正对您的面部也会将其解锁）</string>
+    <string name="security_settings_face_enroll_introduction_footer_part_2">目视手机可能会让手机意外解锁。</string>
     <!-- Introduction message shown in face enrollment that provides extra detail. [CHAR LIMIT=NONE] -->
-    <string name="security_settings_face_enroll_introduction_footer_part_3">长相很想您的人（如您的孩子或同胞胎兄弟姐妹）可以解锁您的手机</string>
+    <string name="security_settings_face_enroll_introduction_footer_part_3">如果有人将手机对着您的脸，也可以解锁您的手机（即使您闭上眼睛）。请将手机置于安全的地方（例如前口袋或手提包），要针对不安全的情况做好万全准备。</string>
 
     <!-- packages_apps_Settings -->
     <string name="security_settings_face_enroll_finish_title">人脸已添加</string>
